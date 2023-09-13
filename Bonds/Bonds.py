@@ -12,4 +12,4 @@ class Bonds:
         pass
 
     def print_price(self):
-        print("Price of bond in $ = ", self.compute_price())
+        print("Price of bond in $ = %.2f" % self.compute_price())
