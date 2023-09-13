@@ -5,7 +5,7 @@ class ZeroCouponBonds(Bonds):
         super().__init__(principal, maturity, interest_rate)
 
     def compute_present_value(self, x, n):
-        return Discounting.computePV(x, self.interest_rate, 1, n)
+        return Discounting.compute_pv(x, self.interest_rate, 1, n)
 
     def compute_price(self):
         return self.compute_present_value(self.principal, self.maturity)

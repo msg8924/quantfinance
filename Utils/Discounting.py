@@ -1,27 +1,29 @@
 from math import exp
 from math import pow
 
-def computeYield(pv, cpn):
+def compute_yield(pv, cpn):
     return cpn/pv
 
-def computePVCouponBond(x, r, n,t, cpn):
+def compute_pv_coupon_bond(x, r, n, t, cpn):
     pv = 0
     for i in range(0,n*t):
-        pv += computePV(cpn/n,r/n,1,i+1)
-    pv += computePV(x,r,n,t)
+        pv += compute_pv(cpn / n, r / n, 1, i + 1)
+    pv += compute_pv(x, r, n, t)
     return pv
 
-def computePV(x, r,n, t):
+def compute_pv(x, r, n, t):
     return x * pow(1+ r/n, -t*n)
 
-def computeFV(x, r,n, t):
+def compute_fv(x, r, n, t):
     return x * pow(1+r/n,t*n)
 
-def computeCPV(x,r,t):
+def compute_cpv(x, r, t):
     return x * exp(-r*t)
-def computeCFV(x,r,t):
+def compute_cfv(x, r, t):
     return x * exp(r * t)
 
+
+'''
 if __name__ == '__main__':
    x = 100
    r = 0.04
@@ -46,3 +48,4 @@ if __name__ == '__main__':
 
    bondPV = computePVCouponBond(1000,0.04,1,3,100)
    print(computeYield(bondPV,100)*100)
+'''

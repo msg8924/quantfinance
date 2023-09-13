@@ -8,7 +8,7 @@ class CouponBonds(Bonds):
         self.coupon = coupon
 
     def compute_present_value(self, x, n):
-        return Discounting.computePVCouponBond(x, self.interest_rate, 1,self.maturity,self.coupon)
+        return Discounting.compute_pv_coupon_bond(x, self.interest_rate, 1, self.maturity, self.coupon)
 
     def compute_price(self):
         return self.compute_present_value(self.principal, self.maturity)
