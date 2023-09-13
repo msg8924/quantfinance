@@ -4,8 +4,7 @@ from math import pow
 def computeYield(pv, cpn):
     return cpn/pv
 
-
-def computePVBond(x, r, n,t, cpn):
+def computePVCouponBond(x, r, n,t, cpn):
     pv = 0
     for i in range(0,n*t):
         pv += computePV(cpn/n,r/n,1,i+1)
@@ -40,10 +39,10 @@ if __name__ == '__main__':
    cpv = computeCPV(cfv,r,t)
 
    print(computePV(1000,r,n,t))
-   print(computeCPV(1000,r,t))
+   print(computePVCouponBond(1000,0.04,1,3,100))
 
    print(cpv)
    print(cfv)
 
-   bondPV = computePVBond(1000,0.04,1,3,100)
+   bondPV = computePVCouponBond(1000,0.04,1,3,100)
    print(computeYield(bondPV,100)*100)
