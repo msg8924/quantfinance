@@ -1,6 +1,6 @@
 MPT:
 - diversification is important
-- combining assets in order to reduce risk
+- combining assets in order to reduce unsystematic risk (i.e. component of stock's return that is not correlated with market moves)
 
 Assumptions of MPT:
 - Returns are normally distributed N(u,sigma). Note: returns might not be normally distributed
@@ -10,3 +10,4 @@ Assumptions of MPT:
 
 MPT construct optimal portfolio offering the maximum possible expected return for a given level of risk
 - The efficient portfolio is the portfolio that has the highest reward for a given level of risk or lowest risk for a given return
+

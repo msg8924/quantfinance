@@ -1,0 +1,14 @@
+Risks in Finance:
+- Unsystematic Risk: Inherent to individual assets and can be reduced via diversification as noted by MPT
+- Systematic Risk: Cannot be diversified away. Risk related to interest rates changes, recessions, wars, etc.
+
+CAPM:
+- Measures the Systematic Risk with a Beta parameter
+- E[Ra] = Rf + (B*E[Rm-Rf])
+    where B = Cov(Ra * Rm) / Var(Rm) or B = correlation(Ra,Rm) * (Sigma(Ra)/Sigma(Rm))
+
+
+Correlation(Ra) = Cov(Ra,Rm) / (Sigma(Ra) * Sigma(Rm))
+
+
+
