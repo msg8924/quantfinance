@@ -1,8 +1,7 @@
 from math import pow
 import numpy as np
-from random import sample
 
-import SimulatingRandomVariables
+from Utils.SimulatingRandomVariables import generate_multivariate_normal
 
 def compute_expected_value(xs, ps = None):
     mean = 0.0
@@ -66,7 +65,7 @@ if __name__ == '__main__':
 
     print("Generate Correlated MultiVariates")
 
-    random = SimulatingRandomVariables.generate_multivariate_normal(0,1,0,1,0.5,1000)
+    random = generate_multivariate_normal(0,1,0,1,0.5,1000)
     r1 = random[:,0]
     r2 = random[:,1]
     print(r1)

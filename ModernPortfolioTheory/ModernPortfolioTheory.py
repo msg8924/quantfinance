@@ -1,5 +1,6 @@
+from Utils.Utilities import download_data
+from Utils.Utilities import compute_return
 import numpy as np
-import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib import interactive
@@ -8,25 +9,9 @@ import scipy.optimize as optimization
 NO_OF_TRADING_DAYS = 252
 NO_OF_PORTFOLIOS = 10000
 
-
-def download_data(stocks, start_date, end_date):
-    stock_data = {}
-
-    for stock in stocks:
-        ticker = yf.Ticker(stock)
-        stock_data[stock] = ticker.history(start=start_date, end=end_date)['Close']
-
-    return pd.DataFrame(stock_data)
-
 def show_data(data):
     data.plot(figsize=(10,5))
     plt.show()
-
-def compute_return(data):
-    #Normalization of returns such that they are comparable
-    log_return = np.log(data/data.shift(1))
-    return log_return[1:]
-
 def min_function_sharpe(weights, returns):
     mean , variance, sharpe_ratio = compute_mean_variance(returns, weights)
     return -sharpe_ratio
