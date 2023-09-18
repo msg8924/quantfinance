@@ -3,8 +3,9 @@ from Utils.Utilities import compute_return
 from Utils.Statistics import compute_covariance
 from Utils.Statistics import compute_variance
 from Utils.Statistics import compute_expected_value
+import numpy as np
 
-RISK_FREE_RATE = 5.00
+RISK_FREE_RATE = 0.05
 
 def compute_expected_return_market(log_returns,market_ticker='SPY'):
     market_log_returns = log_returns.loc[:, data.columns == market_ticker].values
@@ -29,16 +30,19 @@ def compute_beta(log_returns, stock_ticker, market_ticker='SPY'):
     return covariance / variance
 
 if __name__ == '__main__':
-    tickers = ['AAPL','JPM','SPY']
+    tickers = ['AAPL','JPM','JNJ','SPY']
+    weights = [0.25] * 3
     start_date = '2023-01-01'
     end_date = '2023-09-14'
     data = download_data(tickers, start_date, end_date)
     log_returns = compute_return(data)
     betas = compute_betas(log_returns,tickers)
     expected_return_market = compute_expected_return_market(log_returns)
+    beta_portfolio = np.dot(np.array(list(betas.values())), np.array(weights).T)
+    print("Portfolio's beta is {0:.5f}".format(beta_portfolio))
     for beta in betas:
         expected_return = compute_expected_return(betas[beta],expected_return_market, RISK_FREE_RATE)
-        print("Ticker {0} has a beta of {1:.5f} and has a return of {2:.5f}".format(beta, betas[beta], expected_return))
+        print("Ticker {0} has a beta of {1:.5f} and has a return of {2:.5f}".format(beta, betas[beta], expected_return * 100))
 
 
 
