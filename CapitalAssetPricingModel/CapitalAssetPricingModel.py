@@ -29,10 +29,13 @@ def compute_betas(log_returns, tickers):
     betas_gd = {}
     tickers.remove('SPY')
     for ticker in tickers:
-        betas[ticker] = compute_beta(log_returns, ticker)
-        ols, gd = compute_beta_regression(log_returns, ticker)
+        print("Ticker {0}'s betas:".format(ticker))
+        covariance_beta = compute_beta(log_returns, ticker)
+        betas[ticker] =covariance_beta
+        ols, gd = compute_beta_regression(log_returns, ticker, 'SPY', covariance_beta, 1)
         betas_ols[ticker] = ols[1]
         betas_gd[ticker] = gd[1]
+        print()
     return betas, betas_ols, betas_gd
 
 
@@ -45,18 +48,19 @@ def compute_beta(log_returns, stock_ticker, market_ticker='SPY'):
     print("Beta - Covariance Matrix method: {0:.5f}".format(covariance_matrix[0, 1] / covariance_matrix[1, 1]))
     return covariance / variance
 
-def compute_beta_regression(log_returns, stock_ticker, market_ticker='SPY'):
+def compute_beta_regression(log_returns, stock_ticker, market_ticker='SPY', initial_w= 0, initial_b= 0):
     stock_log_returns = np.concatenate(log_returns.loc[:, data.columns == stock_ticker].values)
     market_log_returns = np.concatenate(log_returns.loc[:, data.columns == market_ticker].values)
     reg = UnivariateLinearRegression()
     intercept_ols, beta_ols = reg.ols_estimate_coefficients(market_log_returns, stock_log_returns)
-    intercept_gd, beta_gd = reg.fit(market_log_returns,stock_log_returns, alpha=0.01, num_iters=1000, threshold=0.0001, initial_w = 1.27, initial_b = 1, print_statement= False)
     print("Estimated coefficients using OLS: b_0 = {0:.5f} & b_1 = {1:.5f}".format(intercept_ols, beta_ols))
+    intercept_gd, beta_gd = reg.fit(market_log_returns, stock_log_returns, alpha=0.01, num_iters=1000, threshold=0.0001,
+                                    initial_w=initial_w, initial_b=initial_b, print_statement=False)
     print("Estimated coefficients using Gradient Descent: b_0 = {0:.5f} & b_1 = {1:.5f}".format(intercept_gd, beta_gd))
     return (intercept_ols, beta_ols),(intercept_gd, beta_gd)
 
 if __name__ == '__main__':
-    tickers = ['AAPL', 'SPY']
+    tickers = ['AAPL', 'GS', 'SPY']
     num_stocks = (len(tickers) - 1)
     weights = [1/num_stocks] * num_stocks
     start_date = '2018-09-14'
@@ -65,7 +69,6 @@ if __name__ == '__main__':
     log_returns = compute_return(data)
     betas, betas_ols, betas_gd = compute_betas(log_returns, tickers)
     portfolio_beta = compute_portfolio_beta(betas, weights)
-    print()
     print("Portfolio's beta using Covariance is {0:.5f}".format(portfolio_beta))
     portfolio_beta_ols = compute_portfolio_beta(betas_ols, weights)
     print("Portfolio's beta using OLS  is {0:.5f}".format(portfolio_beta_ols))
@@ -82,5 +85,6 @@ if __name__ == '__main__':
 
         expected_return = compute_expected_return(betas_gd[beta], expected_return_market, RISK_FREE_RATE)
         print("Ticker {0} has a GD beta of {1:.5f} and has a return of {2:.5f}".format(beta, betas_gd[beta], expected_return))
+        print()
 
 
