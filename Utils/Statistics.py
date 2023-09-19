@@ -7,7 +7,6 @@ def compute_expected_value(xs, ps = None):
     mean = 0.0
     if ps != None:
         for index, tuple in enumerate(zip(xs,ps)):
-            number = tuple[0] * tuple[1]
             mean += tuple[0] * tuple[1]
         return mean
     return np.mean(xs)

@@ -36,12 +36,11 @@ class UnivariateLinearRegression:
         m = x.shape[0]
         w = initial_w  #Initial Estimates
         b = initial_b  #Initial Estimates
-        y_pred = np.ones(m)
+        #y_pred = np.ones(m)
         for i in range(num_iters):
-            previous_cost = self.cost_function(y_pred, y)
+            previous_cost = self.cost_function(self.predict(x, w, b), y)
             b, w = self.update_weights(alpha, x, y, w, b, m)
-            y_pred = self.predict(x, w, b)
-            current_cost = self.cost_function(y_pred, y)
+            current_cost = self.cost_function(self.predict(x, w, b), y)
             if ((previous_cost - current_cost) > threshold):
                 if print_statement:
                     print("Iteration {0:5d}:  current cost is {1:.5f} and previous cost is {2:.5f} "

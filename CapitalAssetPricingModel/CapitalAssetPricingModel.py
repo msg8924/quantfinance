@@ -5,6 +5,7 @@ from Utils.Statistics import compute_variance
 from Utils.Statistics import compute_expected_value
 from DataScience.UnivariateLinearRegression import UnivariateLinearRegression
 import numpy as np
+import random as random
 
 RISK_FREE_RATE = 0.05
 MONTHS_IN_YEAR = 12
@@ -32,7 +33,7 @@ def compute_betas(log_returns, tickers):
         print("Ticker {0}'s betas:".format(ticker))
         covariance_beta = compute_beta(log_returns, ticker)
         betas[ticker] =covariance_beta
-        ols, gd = compute_beta_regression(log_returns, ticker, 'SPY', covariance_beta, 1)
+        ols, gd = compute_beta_regression(log_returns, ticker, 'SPY', random.randrange(-2,3),random.randrange(-2,3))
         betas_ols[ticker] = ols[1]
         betas_gd[ticker] = gd[1]
         print()
