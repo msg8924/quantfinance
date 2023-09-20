@@ -36,7 +36,6 @@ class UnivariateLinearRegression:
         m = x.shape[0]
         w = initial_w  #Initial Estimates
         b = initial_b  #Initial Estimates
-        #y_pred = np.ones(m)
         for i in range(num_iters):
             previous_cost = self.cost_function(self.predict(x, w, b), y)
             b, w = self.update_weights(alpha, x, y, w, b, m)

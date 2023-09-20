@@ -1,0 +1,84 @@
+Purpose of derivatives:
+1) hedge risk - minimize risk
+2) Speculation
+
+Types of Derivatives:
+1) Forwards:
+    - Contract between 2 parties to buy or sell a given assets at a given price in the future
+    - Not regulated and not present on the stock exchange
+2) Futures:
+    - Similar to forwards but they are regulated and traded on futures exchanges
+    - Traded via Margin account that are M2M
+    - No counterparty risk
+3) Options:
+    - Contingent claim asset.
+    It gives you the right but not the obligation to purchase or sell a given asset at a given price in the future
+4) Swaps:
+    - Contract that a given asset will be exchanged for another in the future
+
+
+Forward vs Futures Contracts
+- Forwards:
+    - private agreement between 2 parties to buy or sell a given assets for a specific price in the future
+    - Not traded on exchanges
+    - Not standardized
+    - Not regulated
+    - Not guaranteed. Counterparty could default
+
+- Futures:
+    - contract between 2 parties to buy or sell a given asset for a specific price in the future
+    - Traded on exchanges
+    - Standardized
+    - Regulated
+    - Transactions are guaranteed by Clearing House
+
+
+Swaps:
+    - derivative agreement between 2 parties to exchange assets, cashflows or payments for a certain time and price
+    - Examples of swaps:
+        - Interest Rate Swaps (swap Fixed for Floating).
+            - Swap Rate is the fixed interest rate that the Swap Seller demands for uncertainty associated with floating leg
+            - Swap curve is the plot of the swap rate by maturity
+            - Swap Curve and Sovereign Yield Curve should have similar shape.
+            - If there is a difference between two, this is known as the swap spread.
+              - Short end: Difference tends to be positive to reflect higher credit risk with banks than sovereigns
+              - Long end: Difference is a consequence of supply and demand liquidity
+        - Currency Swap (exchange principal and interest payments on debt denominated in different currencies)
+        - Credit Default Swaps (a CDS Seller to pay the principal amount that is lost as well as the interest on the loan to CDS Buyer if the borrower defaults on their loan)
+
+Interest Rate Swap Example:
+- Company A (better credit score and borrows at a lower cost and expects interest rates to decrease and hence wants a floating rate):
+    - Could get a Fixed Rate loan @ 6.00% or a Floating Rate loan @ Libor + 1.00 %
+
+- Company B (lower credit score and borrows at a higher cost and expects interest rates to increase and hence wants a fixed rate):
+   - Could get a Fixed Rate loan @ 8.00% or a Floating Rate loan @ Libor + 1.50 %
+
+Analysis:
+    - Company A has an absolute advantage over Company B of 2.00% for the fixed rate
+    - Company A has an absolute advantage over Company B of 0.5% for the floating rate
+    - However, Company B has a competitive advantage of borrowing at the floating rate.
+    - Thus, the competitive advantage would create a 1.50% (2.00 - 0.50) arbitrage profit if both parties borrow and swap interest rates
+    - The two companies can then split the 1.50 % arbitrage profit evenly
+
+Transaction is as follows:
+
+   Company A borrows @ 6.00 Fixed initially
+   Company B borrows @ Libor + 1.50% initially
+
+   Swap:
+   Company A ---Libor + 0.50%---> Company B
+   Company A <--6.25% ---- Company B
+
+
+   Net Effect of Swap:
+   Company A:
+        - Fixed: (6.25 - 6.00)%  = + 0.25%
+        - Float: (Libor + 1.00)% - (Libor + 0.50)% = + 0.50% Note: Libor + 1.00 % is due to the fact that it could have borrowed at Libor + 1.00 %
+        - Net: (0.25 + 0.50)% = 0.75%
+   Company B:
+        - Float: (8.00 - 6.25) % = + 1.75%  Note: 8.00% is due to the fact that it could have borrowed at 8.00 %
+        - Float: (Libor + 0.5)% - (Libor + 1.50)%  = - 1.00%
+        - Net: (1.75 - 1.00)% = 0.75%
+
+
+
