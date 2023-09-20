@@ -45,6 +45,10 @@ Swaps:
               - Long end: Difference is a consequence of supply and demand liquidity
         - Currency Swap (exchange principal and interest payments on debt denominated in different currencies)
         - Credit Default Swaps (a CDS Seller to pay the principal amount that is lost as well as the interest on the loan to CDS Buyer if the borrower defaults on their loan)
+            - seller of CDS will compensate the buyer of CDS in event of debt default thus swapping credit risk
+            - buyer of CDS pays fixed premium to the seller till date of maturity
+            - seller of CDS agrees to pay interest payments and principal in the event that bond issuer default
+
 
 Interest Rate Swap Example:
 - Company A (better credit score and borrows at a lower cost and expects interest rates to decrease and hence wants a floating rate):
@@ -79,6 +83,8 @@ Transaction is as follows:
         - Float: (8.00 - 6.25) % = + 1.75%  Note: 8.00% is due to the fact that it could have borrowed at 8.00 %
         - Float: (Libor + 0.5)% - (Libor + 1.50)%  = - 1.00%
         - Net: (1.75 - 1.00)% = 0.75%
+
+
 
 
 
