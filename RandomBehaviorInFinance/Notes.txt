@@ -1,0 +1,22 @@
+Types of Analysis:
+- Fundamental
+    - In depth analysis is a study of a given company
+    - Several factors to consider - management teams, products and services, balance sheets and income statements
+    - attempts to predict if the stock is undervalued or not based on intrinsic value of the company.
+- Technical
+    - is about historical data
+    - interpret historical data and look for specific patterns in S(t) stock price to make predictions accordingly
+- Quantitative
+    - has an assumption all financial quantities have random behavior
+    - we have to use randomness in our models so stochastic calculus and stochastic differential equations are needed
+
+Random Behavior:
+- R(t) = mean + x * standard deviation
+
+We can define daily returns as RV drawn from normal distribution
+
+Stock Price S(t) can be described by a W(t) random walk called a weiner process
+W(t) has a continuous sample path, it is independent and normally distributed increments due to the fact that daily returns are normally distributed.
+
+Random Walks and Weiner Processes:
+- Returns of a given stock price is N(mu, sigma^2) are normally distributed. NOTE: This is related to the Returns = (S(T+1) - S(T)) / S(T)
