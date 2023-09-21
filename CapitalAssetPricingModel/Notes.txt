@@ -10,5 +10,10 @@ CAPM:
 
 Correlation(Ra) = Cov(Ra,Rm) / (Sigma(Ra) * Sigma(Rm))
 
+Beta can be computed via Linear Regression as well
+
+E[Ra] = Rf + (B*E[Rm-Rf])
+E[Ra] - Rf = alpha + (B*E[Rm-Rf]) where alpha is return net the benchmark
+
 
 
