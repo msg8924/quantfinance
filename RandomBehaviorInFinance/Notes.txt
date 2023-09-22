@@ -10,13 +10,46 @@ Types of Analysis:
     - has an assumption all financial quantities have random behavior
     - we have to use randomness in our models so stochastic calculus and stochastic differential equations are needed
 
+Measure Theory:
+Sigma Algebra: is a family of subsets of a set X that follow a set of rules (short definition)
+- X = {a,b}
+- P(X) = { ∅, X, {a}, {b})
+- Σ ⊆ P(X) is a sigma algebra if it follows these rules:
+    1) ∅,  X ∈ Σ
+    2) A ∈ Σ so should be A∁ ∈ Σ
+    3) A1, A2, A3,...,An are in Σ then A = A1 ∪ A2 ∪ A3 U....∪ An
+  Note: All sets in a sigma algebra are called measurable sets
+
+- Ai sigma algebra on X, i ∈ I (some index set). Then ∩Ai is also a sigma algebra on X
+
+Borel Sigma Algebra:
+- For M ⊆ P(X), there is a smallest sigma algebra that contains M
+
+Example X = { a, b ,c ,d }, then M = {{a},{b}}
+   sigma(M) = { ∅, X, {a}, {b}, {a,b}, {b,c,d}, {a,c,d}, {c,d} }
+
+Let X be a topological space. (We need open sets)
+An open set has the following definition:
+- A set U ⊆ R (reals) is open, if for every x ∈ U, there exists a number D such that (x-D, x+D) ⊆ U
+- e.g. R numbers,  ∅, (a,b)
+
+For example (a,b):
+    Take D = min(x-a, b-x), then (x-D, x+D) ⊆ (a,b)
+
+B(X) Borel sigma algebra (i.e. sigma algebra created by all open sets)
+
+
+
+
+
+
 Random Behavior:
 - R(t) = mean + x * standard deviation
 
 We can define daily returns as RV drawn from normal distribution
 
 Stock Price S(t) can be described by a W(t) random walk called a weiner process
-W(t) has a continuous sample path, it is independent and normally distributed increments due to the fact that daily returns are normally distributed.
+W(t) has a continuous sample path, it is independent and normally distributed increments
 
 Random Walks and Weiner Processes:
-- Returns of a given stock price is N(mu, sigma^2) are normally distributed. NOTE: This is related to the Returns = (S(T+1) - S(T)) / S(T)
+- Returns of a given stock price is N(mu, sigma^2) are normally distributed. NOTE: This is related to the Returns = (S(T+1) - S(T)) / S(T) and not the S(T) itself
