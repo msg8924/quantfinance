@@ -19,7 +19,6 @@ Sigma Algebra: is a family of subsets of a set X that follow a set of rules (sho
     2) A ∈ Σ so should be A∁ ∈ Σ
     3) A1, A2, A3,...,An are in Σ then A = A1 ∪ A2 ∪ A3 U....∪ An
   Note: All sets in a sigma algebra are called measurable sets
-
 - Ai sigma algebra on X, i ∈ I (some index set). Then ∩Ai is also a sigma algebra on X
 
 Borel Sigma Algebra:
