@@ -8,16 +8,14 @@ dt = T / N  # Time step
 
 # Generate Brownian motion path
 t = np.linspace(0.0, T, N+1)
-W = np.cumsum(np.sqrt(dt) * np.random.randn(N))
+W = np.cumsum(np.sqrt(dt) * np.random.randn(N+1))
 
 # Calculate quadratic variation
 quad_variation = np.cumsum(np.diff(W)**2)
 
 # Create plots
 plt.figure(figsize=(12, 5))
-print(t)
-print(W)
-'''
+
 # Brownian motion path
 plt.subplot(121)
 plt.plot(t, W)
@@ -34,4 +32,3 @@ plt.ylabel("Value")
 
 plt.tight_layout()
 plt.show()
-'''
