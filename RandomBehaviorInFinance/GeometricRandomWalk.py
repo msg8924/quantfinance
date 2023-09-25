@@ -9,15 +9,15 @@ def generate_drift_part(sigma, S, dt):
     return S * sigma * dt
 
 def generate_geometric_random_walk(S, dt, sigma, n=1000):
-    #dS = sigmaS.dt + sigmaSdW
+    #dS = sigmaS.dt + sigmaSdW #Return S(T+1) - S(T)
     t = np.linspace(0,n,n+1)
-    dS = np.zeros(n+1)
-    dS[0] = S
+    S_path = np.zeros(n+1)
+    S_path[0] = S
     for i in range(1, n+1):
-        dS[i] = dS[i-1] + (generate_drift_part(sigma,S,dt) + generate_random_part(sigma,S,dt))
+        S_path[i] = S_path[i-1] + (generate_drift_part(sigma,S,dt) + generate_random_part(sigma,S,dt))
     #dS[1:n+1] = np.cumsum((generate_drift_part(sigma,S,dt) + generate_random_part(sigma,S,dt),n))
 
-    return t, dS
+    return t, S_path
 
 
 def plot_geometric_random_walk(t, dS):
