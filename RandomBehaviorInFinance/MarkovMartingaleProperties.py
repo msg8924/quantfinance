@@ -26,7 +26,7 @@ future_path = np.concatenate(([W[index_selected]], W[index_selected + 1:index_se
 # A stochastic process (such as a sequence of random variables) exhibits the Markov property if the future behavior of
 # the process, given its history up to a certain time, only depends on the current state and is independent of the past.
 # conditional distribution of the process B(t) given information until s < t is dependent of B(s)
-#The conditional distribution of a random variable describes the probability distribution of that variable
+# The conditional distribution of a random variable describes the probability distribution of that variable
 # given certain information or conditions.
 # It provides information about how the variable's values are distributed within a specific context or condition.
 # Example of this would be by letting X be Heights and Y be gender.
@@ -49,7 +49,7 @@ plt.legend()
 # Conditional expectation, on the other hand, is a numerical summary of a random variable's expected value given certain
 # information or conditions. It represents the average or expected value of a random variable under a specific condition.
 # Example of this would be by letting X be Income and Y be Education.
-# E[X| Y = college degree) would represent the average income of individuals with a college degree.
+# E[X| Y = college degree] would represent the average income of individuals with a college degree.
 plt.subplot(122)
 plt.plot(t, W, label="Path")
 plt.plot([t_selected, t_selected + s], [W[index_selected], W[index_selected]], 'ro-', label="Conditional Expectation")
