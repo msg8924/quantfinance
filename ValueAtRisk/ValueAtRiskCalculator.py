@@ -2,17 +2,15 @@ from scipy.stats import norm
 from numpy import sqrt
 class ValueAtRiskCalculator:
 
-    def __init__(self, S, mu, sigma, c, n):
-        self.S = S
+    def __init__(self, position, mu, sigma, c, n):
+        self.position = position
         self.mu = mu
         self.sigma = sigma
         self.c = c
         self.n = n
 
     def compute_value_at_risk(self):
-        return self.S * (self.mu * self.n - self.sigma * sqrt(self.n) * norm.ppf(1-self.c))
-
-
+        return self.position * (self.mu * self.n - self.sigma * sqrt(self.n) * norm.ppf(1-self.c))
 
 if __name__ == '__main__':
     calculator = ValueAtRiskCalculator(1e6, 0.01, 0.0005,0.99, 10)
