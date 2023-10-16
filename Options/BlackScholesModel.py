@@ -23,25 +23,28 @@ class BlackScholesModel:
     def __compute_call_price(self, stock_price, time):
         d1 = self.__compute_d1(stock_price, time)
         d2 = self.__compute_d2(d1,time)
+        print("D1 = {} and D2 = {}".format(d1,d2))
         return ((stock_price * stats.norm.cdf(d1)) -
-                ((self.strike * exp(-1 * self.rate * (self.expiry - time))) * stats.norm.cdf(d2)))
+                ((self.strike * exp(-self.rate * (self.expiry - time))) * stats.norm.cdf(d2)))
 
     def __compute_put_price(self, stock_price, time):
         d1 = self.__compute_d1(stock_price, time)
         d2 = self.__compute_d2(d1, time)
-        return ((-1 * stock_price * stats.norm.cdf(-1 * d1)) -
-                ((self.strike * exp(-1 * self.rate * (self.expiry - time))) * stats.norm.cdf(-1 * d2)))
+        print("D1 = {} and D2 = {}".format(d1,d2))
+        return ((-stock_price * stats.norm.cdf(-d1)) +
+                ((self.strike * exp(-self.rate * (self.expiry - time))) * stats.norm.cdf(-d2)))
 
     def compute_option_price(self, stock_price, time):
         if self.option_type == OptionType.CALL:
             return self.__compute_call_price(stock_price, time)
         return self.__compute_put_price(stock_price, time)
 
-
 if __name__ == '__main__':
-    bsm = BlackScholesModel(100, 0.50, 0.50, 10, OptionType.CALL)
-    print(bsm.compute_option_price(120,5))
+    call = BlackScholesModel(100, 0.20, 0.05, 1, OptionType.CALL)
+    print("Call Option price is {:f}".format(call.compute_option_price(100,0)))
 
+    put = BlackScholesModel(100, 0.20, 0.05, 1, OptionType.PUT)
+    print("Put Option price is {:f}".format(put.compute_option_price(100,0)))
 
 
 
