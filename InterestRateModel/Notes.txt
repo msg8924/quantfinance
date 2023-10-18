@@ -1,0 +1,21 @@
+dxt = theta(u-xt)dt + sigma * dWt
+- process is stationary while brownian motion is not
+- forms basis of the model for interest rates (such as Vasicek mode) or currency exchange rates
+- used in pairs trading strategy
+
+dxt = change in time series
+theta = rate of by which the process reverts towards to the mean
+u = is the equilibrium or the mean value
+
+
+Vasicek Model:
+- simple short rate r(t) model
+- bond, mortgages and credit derivatives are quite sensitive to r(t) interest rate changes
+- IR modeling is quite complex
+- r(t) models are affected by several factors to name a few: political decisions, government intervention and economic states
+- assumes that the r(t) interest rates follows a mean reverting OU process
+
+dr(t) = k(theta(u-r(t))dt)+ sigma * dWt
+- where k is the speed of mean reversion. If this is high, it reverts back to mean fast else slowly
+- r(t) is interest rate
+- allows r(t) to be negative
